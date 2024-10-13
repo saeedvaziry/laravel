@@ -58,7 +58,7 @@ jobs:
             core.setFailed('Workflow failed. Release version does not match with selected target branch. Did you select the correct branch?')
 
       - name: Update Application.php version
-        run: sed -i '' "s/'version' => '[^']*'/'version' => '${{ steps.version.outputs.version }}'/" config/app.php
+        run: sed -i "s/'version' => '[^']*'/'version' => '${{ steps.version.outputs.version }}'/" config/app.php
 
       - name: Commit version change
         uses: stefanzweifel/git-auto-commit-action@v5
